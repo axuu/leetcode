@@ -1,6 +1,17 @@
 class Solution:
-    def majorityElement(nums: list[int]) -> int:
-        n = len(nums)
-        print(9//2)
+    def moveZeroes(nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        slow = 0
+        for fast in range(len(nums)):
+            if nums[fast] != 0 and nums[slow] == 0:
+                nums[slow], nums[fast] = nums[fast], nums[slow]
+
+            # wait while we find a non-zero element to
+            # swap with you
+            if nums[slow] != 0:
+                slow += 1
+            print(nums)
     
-Solution.majorityElement([2,2,1,1,1,1,1,2,3])
+Solution.moveZeroes([0,1,0,3,12])
