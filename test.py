@@ -1,15 +1,20 @@
 class Solution:
-    def longestCommonPrefix(strs: list[str]) -> str:
-        if (len(strs) == 1):
-            return strs[0]
-        strs = sorted(strs)
-        first = strs[0]
-        last = strs[-1]
-        result = ''
-        for i in range(len(strs[0])):
-            if (first[i] != last[i]):
-                break
-            result += first[i]
-        return result
+    def isValid(s: str) -> bool:
+        map = {
+            ")":"(",
+            "]":"[",
+            "}":"{",
+        }
+        stack = []
+        for i in range(len(s)):
+            if (s[i] in [')', "]", "}"]):
+                if (len(stack) == 0 or map[s[i]] != stack[-1]):
+                    return False
+                stack.pop()
+            else:
+                stack.append(s[i])
+        return len(stack) == 0
+
+
     
-print(Solution.longestCommonPrefix(["",""]))
+print(Solution.isValid("[([]])"))
