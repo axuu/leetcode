@@ -1,20 +1,21 @@
 class Solution:
-    def isValid(s: str) -> bool:
-        map = {
-            ")":"(",
-            "]":"[",
-            "}":"{",
-        }
-        stack = []
-        for i in range(len(s)):
-            if (s[i] in [')', "]", "}"]):
-                if (len(stack) == 0 or map[s[i]] != stack[-1]):
-                    return False
-                stack.pop()
+    def removeElement(nums: list[int], val: int) -> int:
+        if(len(nums) == 1):
+            if(nums[0] == val):
+                return 0
             else:
-                stack.append(s[i])
-        return len(stack) == 0
+                return 1
 
+        i = 0
+        j = len(nums) - 1
+        while i <= j:
+            if nums[i] == val:
+                nums[i] = nums[j]
+                nums[j] = "_"
+                j = j - 1
+            else:
+                i = i + 1
+        return j + 1
 
     
-print(Solution.isValid("[([]])"))
+print(Solution.removeElement([3,3], 3))
