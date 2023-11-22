@@ -24,6 +24,8 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+# 方法一 递归
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         if (list1 == None):
@@ -38,6 +40,7 @@ class Solution:
             list2.next = self.mergeTwoLists(list1, list2.next)
             return list2
 
+# 方法二 循环
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(-1)
