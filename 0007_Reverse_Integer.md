@@ -1,4 +1,4 @@
-## 思考
+## 回顾与思考
 
 第一次做这个题想到的是数字转字符串的方法，但效率肯定是不高的，这次采用数学上循环除以 10 的方法
 
@@ -40,4 +40,3 @@ class Solution:
         rev = int(str(abs(x))[::-1])
         return (-rev if x < 0 else rev) if rev.bit_length() < 32 else 0
 ```
-

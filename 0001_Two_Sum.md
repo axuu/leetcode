@@ -1,4 +1,4 @@
-## 思考
+## 回顾与思考
 
 难点：Test case 中有很长的数组，可能会 Time Limit Exceeded
 
@@ -23,8 +23,8 @@ class Solution:
 
 需要注意：
 
-* 遍历中如果需要获得 index，需要使用 enumerate()
-* 和 JavaScript 不同，index 值在元素之前
+- 遍历中如果需要获得 index，需要使用 enumerate()
+- 和 JavaScript 不同，index 值在元素之前
 
 ## 题解
 
@@ -38,4 +38,3 @@ class Solution:
             else:
                 d[e] = i
 ```
-

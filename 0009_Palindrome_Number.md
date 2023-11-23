@@ -1,4 +1,4 @@
-## 思考
+## 回顾与思考
 
 用了一个 Python 反转字符串的简单方法
 
@@ -13,4 +13,3 @@ class Solution:
             return False
         return str(x) == str(x)[::-1]
 ```
-

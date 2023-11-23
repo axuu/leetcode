@@ -1,4 +1,4 @@
-## 思考
+## 回顾与思考
 
 两个阻碍思路的地方：
 
@@ -29,4 +29,3 @@ class Solution:
           return False
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 ```
-

@@ -1,11 +1,11 @@
-## 思考
+## 回顾与思考
 
 一开始的想法是依次计算整数的平方，当 i^2 < x < (i+1)^2 时，i 是平方根的整数部分，但实际执行结果太慢了，遇到两次 Time Limite Exceeded，微调通过后成绩也非常差：
 
 ```python
 class Solution:
     def mySqrt(self, x: int) -> int:
-        if x == 0 or x == 1: 
+        if x == 0 or x == 1:
             return x
         i = 0
         while i <= x:
