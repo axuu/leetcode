@@ -1,14 +1,8 @@
 ## 回顾与思考
 
-两个阻碍思路的地方：
+拆分递归问题: 一个节点下面的树相等, 就是二者值相等, 且左右子树也相等
 
-1. 考虑到所有边界条件
-2. p.val == q.val 是不能返回 True 的，因为虽然两个节点相等，但他们的子节点不一定相等，需要继续遍历
-
-```python
-if p.val == q.val: # 这两行是不能写的
-  return True
-```
+边缘情况: 二者都是 None, 也相等, `p is q` 可以用来判断二者是否都是 None
 
 ## 题解
 
@@ -21,11 +15,7 @@ if p.val == q.val: # 这两行是不能写的
 #         self.right = right
 class Solution:
     def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
-        if not p and not q:
-          return True
-        if (p and not q) or (q and not p):
-          return False
-        if p.val != q.val:
-          return False
-        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        if (p and q):
+          return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        return p is q
 ```
