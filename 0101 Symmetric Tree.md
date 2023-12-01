@@ -1,8 +1,12 @@
 ## 回顾与思考
 
-拆分递归问题: 一个节点下面的树相等, 就是二者值相等, 且左右子树也相等
+参考了其他题解, 因为原函数只有一个参数 root, 递归时不方便传递参数. 使用的技巧是利用另一个函数, 把参数 root 变成了 left 和 right, 这样就可以用代码表达"对称"这个定义了.
 
-边缘情况: 二者都是 None, 也相等, `p is q` 可以用来判断二者是否都是 None
+边缘 case:
+
+- left 和 right 二者都是 None, 对称
+- left 和 right 二者只有一个是 None, 不对称
+- 根节点如果是 None, 对称
 
 ## 题解
 
@@ -13,9 +17,17 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
-    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
-        if (p and q):
-          return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
-        return p is q
+    def isMirror(self, left, right):
+        if not left and not right:
+            return True
+        if not left or not right:
+            return False
+        return left.val == right.val and self.isMirror(left.left, right.right) and self.isMirror(left.right, right.left)
+
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        return self.isMirror(root.left, root.right)
 ```
