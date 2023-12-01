@@ -22,4 +22,10 @@ class Solution:
             return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
         else:
             return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
+
+# 和上面的代码等价, 只是写法更简单
+def minDepth(self, root):
+    if not root: return 0
+    d = map(self.minDepth, (root.left, root.right))
+    return 1 + (min(d) or max(d))
 ```
